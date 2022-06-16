@@ -50,7 +50,7 @@ const Neighbors = ({ countries = [] as CountryProps[] }) => {
   return (
     <div>
       <h3>Neighbors</h3>
-      {neighbors && neighbors.length > 1
+      {neighbors && neighbors.length > 0
         ? neighbors.map((neighbor, index) => {
             return <div key={`${neighbor}-${index}`}>{`${neighbor}`}</div>;
           })
