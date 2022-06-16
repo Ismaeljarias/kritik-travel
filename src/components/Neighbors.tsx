@@ -20,13 +20,16 @@ const Neighbors = ({ countries = [] as CountryProps[] }) => {
             )
         )
         .forEach((neighbor) => {
-          const pair = [country.name, neighbor.name].sort() as string[] | any;
+          const pairCountries = [country.name, neighbor.name].sort() as
+            | string[]
+            | any;
           if (
             !neighbors?.some(
-              (isPair) => isPair[0] === pair[0] && isPair[1] === pair[1]
+              (isPair) =>
+                isPair[0] === pairCountries[0] && isPair[1] === pairCountries[1]
             )
           ) {
-            neighbors?.push(pair);
+            neighbors?.push(pairCountries);
           }
         });
       return neighbors;
@@ -43,7 +46,7 @@ const Neighbors = ({ countries = [] as CountryProps[] }) => {
               {neighbors[0]}, {neighbors[1]}
             </div>
           ))
-        : "No grouping found"}
+        : "No groupings found"}
     </div>
   );
 };
