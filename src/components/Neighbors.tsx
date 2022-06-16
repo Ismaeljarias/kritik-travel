@@ -8,13 +8,6 @@ type CountryProps = {
   neighbors: NeighborsProps[];
 };
 
-const mystyle = {
-  color: "white",
-  backgroundColor: "DodgerBlue",
-  padding: "1indexpx",
-  fontFamily: "Arial",
-};
-
 const Neighbors = ({ countries = [] as CountryProps[] }) => {
   const getNeighbors = (countries: CountryProps[]) =>
     countries.reduce((neighbors: string[] | null, country, index) => {
