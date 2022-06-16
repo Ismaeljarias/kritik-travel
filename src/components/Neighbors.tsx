@@ -8,6 +8,13 @@ type CountryProps = {
   neighbors: NeighborsProps[];
 };
 
+const mystyle = {
+  color: "white",
+  backgroundColor: "DodgerBlue",
+  padding: "1indexpx",
+  fontFamily: "Arial",
+};
+
 const Neighbors = ({ countries = [] as CountryProps[] }) => {
   const getNeighbors = (countries: CountryProps[]) =>
     countries.reduce((neighbors: string[] | null, country, index) => {
@@ -33,24 +40,17 @@ const Neighbors = ({ countries = [] as CountryProps[] }) => {
     }, []);
 
   const neighbors = getNeighbors(countries);
-  console.log("vecino", neighbors);
 
   return (
     <div>
       <h3>Neighbors</h3>
-      {neighbors?.length ? (
-        <ol>
-          {neighbors.map((neighbor, index, arr) => {
-            return (
-              <li key={`${neighbor}-${index}`}>
-                <span className="item">{(index ? ", " : "") + neighbor}, </span>
-              </li>
-            );
-          })}
-        </ol>
-      ) : (
-        <p>Not groupings found</p>
-      )}
+      {neighbors && neighbors.length > 0
+        ? neighbors.map((neighbors, index) => (
+            <div key={`${neighbors[index]}`}>
+              {neighbors[0]}, {neighbors[1]}
+            </div>
+          ))
+        : "No grouping found"}
     </div>
   );
 };
